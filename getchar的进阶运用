@@ -1,0 +1,19 @@
+#include<stdio.h>
+int main()
+{   int a = 0;
+int m = 0;
+	printf("请输入密码:");
+	scanf_s("%d", &m);
+	printf("请确认：");
+	getchar();//必不可少
+	a = getchar();
+	if (a == 'y')
+		printf("确认成功\n");
+	else
+		printf("放弃确认");
+	return 0;
+}
+
+8行放getchar（）的原因，输入密码123456后，按enter输入，输出区会把123456提走，在输出缓冲区留下enter，，此时如果没第8行，则a=getchar（）中的getchar（）会直接把输入缓冲区中的entet提走，相当与之后输入了enter，直接显示放弃确认。
+getchar（）一次只提一个字符
+getchar（）与scanf_s一样，都为输入型函数
